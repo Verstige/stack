@@ -9,9 +9,17 @@ All notable changes to this project will be documented in this file.
 - Add marketing landing page + auth rebranding
 - Add GHCR build workflows for Stack + Stack Realtime
 
+### 🐛 Bug Fixes
+
+- Correct aarch64 tag naming in build workflows
+
 ### 💼 Other
 
 - Coolify → Stack
+
+### 📚 Documentation
+
+- Update changelog
 
 ## [4.1.2] - 2026-06-04
 
