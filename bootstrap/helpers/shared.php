@@ -427,7 +427,7 @@ function get_route_parameters(): array
 function get_latest_sentinel_version(): string
 {
     try {
-        $response = Http::get(config('constants.coolify.versions_url'));
+        $response = Http::get(config('constants.stack.versions_url'));
         $versions = $response->json();
 
         return data_get($versions, 'coolify.sentinel.version');
@@ -605,7 +605,7 @@ function isDev(): bool
 
 function isCloud(): bool
 {
-    return ! config('constants.coolify.self_hosted');
+    return ! config('constants.stack.self_hosted');
 }
 
 /**
@@ -1029,7 +1029,7 @@ function generateFqdn(Server $server, string $random, bool $forceHttps = false, 
         $scheme = 'https';
     }
 
-    if ($parserVersion >= 5 && version_compare(config('constants.coolify.version'), '4.0.0-beta.420.7', '>=')) {
+    if ($parserVersion >= 5 && version_compare(config('constants.stack.version'), '4.0.0-beta.420.7', '>=')) {
         return "{$random}.$host$path";
     }
 
@@ -3561,7 +3561,7 @@ function getHelperVersion(): string
         return $settings->dev_helper_version;
     }
 
-    return config('constants.coolify.helper_version');
+    return config('constants.stack.helper_version');
 }
 
 function loggy($message = null, array $context = [])

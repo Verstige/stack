@@ -21,7 +21,7 @@ class DevelopmentRailpackExamplesSeeder extends Seeder
 
     public const ENVIRONMENT_UUID = 'railpack-examples-production';
 
-    public const GIT_REPOSITORY = 'coollabsio/coolify-examples';
+    public const GIT_REPOSITORY = 'verstige/stack-examples';
 
     public const GIT_BRANCH = 'next';
 
@@ -399,7 +399,7 @@ KEY,
                 'uuid' => 'localhost',
                 'name' => 'localhost',
                 'description' => 'This is a test docker container in development mode',
-                'ip' => 'coolify-testing-host',
+                'ip' => 'stack-testing-host',
                 'team_id' => 0,
                 'private_key_id' => 1,
                 'proxy' => [
@@ -414,7 +414,7 @@ KEY,
             [
                 'uuid' => 'docker',
                 'name' => 'Standalone Docker 1',
-                'network' => 'coolify',
+                'network' => 'stack',
                 'server_id' => 0,
             ],
         );
@@ -447,7 +447,7 @@ KEY,
         $project = Project::query()->firstOrNew(['uuid' => self::PROJECT_UUID]);
         $project->fill([
             'name' => 'Railpack Examples',
-            'description' => 'Development-only Railpack examples from coollabsio/coolify-examples@next.',
+            'description' => 'Development-only Railpack examples from verstige/stack-examples@next.',
             'team_id' => 0,
         ]);
         $project->save();

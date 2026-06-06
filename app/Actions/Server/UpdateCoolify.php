@@ -34,7 +34,7 @@ class UpdateCoolify
         // Fetch fresh version from CDN instead of using cache
         try {
             $response = Http::retry(3, 1000)->timeout(10)
-                ->get(config('constants.coolify.versions_url'));
+                ->get(config('constants.stack.versions_url'));
 
             if ($response->successful()) {
                 $versions = $response->json();
@@ -44,14 +44,14 @@ class UpdateCoolify
                 $cacheVersion = get_latest_version_of_coolify();
 
                 // Validate cache version against current running version
-                if ($cacheVersion && version_compare($cacheVersion, config('constants.coolify.version'), '<')) {
+                if ($cacheVersion && version_compare($cacheVersion, config('constants.stack.version'), '<')) {
                     Log::error('Failed to fetch fresh version from CDN and cache is corrupted/outdated', [
                         'cached_version' => $cacheVersion,
-                        'current_version' => config('constants.coolify.version'),
+                        'current_version' => config('constants.stack.version'),
                     ]);
                     throw new \Exception(
                         'Cannot determine latest version: CDN unavailable and cache version '.
-                        "({$cacheVersion}) is older than running version (".config('constants.coolify.version').')'
+                        "({$cacheVersion}) is older than running version (".config('constants.stack.version').')'
                     );
                 }
 
@@ -64,15 +64,15 @@ class UpdateCoolify
             $cacheVersion = get_latest_version_of_coolify();
 
             // Validate cache version against current running version
-            if ($cacheVersion && version_compare($cacheVersion, config('constants.coolify.version'), '<')) {
+            if ($cacheVersion && version_compare($cacheVersion, config('constants.stack.version'), '<')) {
                 Log::error('Failed to fetch fresh version from CDN and cache is corrupted/outdated', [
                     'error' => $e->getMessage(),
                     'cached_version' => $cacheVersion,
-                    'current_version' => config('constants.coolify.version'),
+                    'current_version' => config('constants.stack.version'),
                 ]);
                 throw new \Exception(
                     'Cannot determine latest version: CDN unavailable and cache version '.
-                    "({$cacheVersion}) is older than running version (".config('constants.coolify.version').')'
+                    "({$cacheVersion}) is older than running version (".config('constants.stack.version').')'
                 );
             }
 
@@ -83,7 +83,7 @@ class UpdateCoolify
             ]);
         }
 
-        $this->currentVersion = config('constants.coolify.version');
+        $this->currentVersion = config('constants.stack.version');
         if (! $manual_update) {
             if (! $settings->is_auto_update_enabled) {
                 return;
@@ -117,7 +117,7 @@ class UpdateCoolify
     private function update()
     {
         $latestHelperImageVersion = getHelperVersion();
-        $upgradeScriptUrl = config('constants.coolify.upgrade_script_url');
+        $upgradeScriptUrl = config('constants.stack.upgrade_script_url');
 
         remote_process([
             "curl -fsSL {$upgradeScriptUrl} -o /data/coolify/source/upgrade.sh",

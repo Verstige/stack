@@ -7,4 +7,4 @@ function env()
 }
 
 $version = include 'config/constants.php';
-echo $version['coolify']['realtime_version'] ?: 'unknown';
+echo $version['stack']['realtime_version'] ?: 'unknown';

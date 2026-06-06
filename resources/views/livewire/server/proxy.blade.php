@@ -47,8 +47,8 @@
                     @php
                         $proxyTitle =
                             $server->proxyType() === ProxyTypes::TRAEFIK->value
-                                ? 'Traefik (Coolify Proxy)'
-                                : 'Caddy (Coolify Proxy)';
+                                ? 'Traefik (Stack Proxy)'
+                                : 'Caddy (Stack Proxy)';
                     @endphp
                     @if ($server->proxyType() === ProxyTypes::TRAEFIK->value || $server->proxyType() === 'CADDY')
                         <div @if($server->proxyType() === ProxyTypes::TRAEFIK->value) x-data="{ traefikWarningsDismissed: localStorage.getItem('callout-dismissed-traefik-warnings-{{ $server->id }}') === 'true' }" @endif>

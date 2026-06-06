@@ -55,7 +55,7 @@ it('uses max of CDN and cache versions', function () {
 
     Cache::shouldReceive('forget')->once();
 
-    config(['constants.coolify.version' => '4.0.5']);
+    config(['constants.stack.version' => '4.0.5']);
 
     // Mock instanceSettings function
     $this->app->instance('App\Models\InstanceSettings', function () {
@@ -96,7 +96,7 @@ it('never downgrades from current running version', function () {
     Cache::shouldReceive('forget')->once();
 
     // Running version is newest
-    config(['constants.coolify.version' => '4.0.10']);
+    config(['constants.stack.version' => '4.0.10']);
 
     \Illuminate\Support\Facades\Log::shouldReceive('warning')
         ->once()
@@ -121,7 +121,7 @@ it('uses data_set for safe version mutation', function () {
     File::shouldReceive('put')->once();
     Cache::shouldReceive('forget')->once();
 
-    config(['constants.coolify.version' => '4.0.5']);
+    config(['constants.stack.version' => '4.0.5']);
 
     $this->app->instance('App\Models\InstanceSettings', function () {
         return $this->settings;
@@ -167,7 +167,7 @@ it('preserves other component versions when preventing Coolify downgrade', funct
 
     Cache::shouldReceive('forget')->once();
 
-    config(['constants.coolify.version' => '4.0.10']);
+    config(['constants.stack.version' => '4.0.10']);
 
     \Illuminate\Support\Facades\Log::shouldReceive('warning')
         ->once()

@@ -17,7 +17,7 @@ class StandaloneDockerSeeder extends Seeder
                 'id' => 0,
                 'uuid' => 'docker',
                 'name' => 'Standalone Docker 1',
-                'network' => 'coolify',
+                'network' => 'stack',
                 'server_id' => 0,
             ]);
         }

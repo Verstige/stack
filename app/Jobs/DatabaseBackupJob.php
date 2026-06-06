@@ -300,7 +300,7 @@ class DatabaseBackupJob implements ShouldBeEncrypted, ShouldQueue
             }
             $this->backup_dir = backup_dir().'/databases/'.str($this->team->name)->slug().'-'.$this->team->id.'/'.$this->directory_name;
             if ($this->database->name === 'coolify-db') {
-                $databasesToBackup = ['coolify'];
+                $databasesToBackup = ['stack'];
                 $this->directory_name = $this->container_name = 'coolify-db';
                 $ip = Str::slug($this->server->ip);
                 $this->backup_dir = backup_dir().'/coolify'."/coolify-db-$ip";
@@ -733,7 +733,7 @@ class DatabaseBackupJob implements ShouldBeEncrypted, ShouldQueue
 
     private function getFullImageName(): string
     {
-        $helperImage = config('constants.coolify.helper_image');
+        $helperImage = config('constants.stack.helper_image');
         $latestVersion = getHelperVersion();
 
         return "{$helperImage}:{$latestVersion}";

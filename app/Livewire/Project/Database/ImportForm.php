@@ -667,7 +667,7 @@ EOD;
             }
 
             // Get helper image
-            $helperImage = config('constants.coolify.helper_image');
+            $helperImage = config('constants.stack.helper_image');
             $latestVersion = getHelperVersion();
             $fullImageName = "{$helperImage}:{$latestVersion}";
 

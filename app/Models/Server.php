@@ -478,7 +478,7 @@ class Server extends BaseModel
                                 'entryPoints' => [
                                     0 => 'http',
                                 ],
-                                'service' => 'coolify',
+                                'service' => 'stack',
                                 'rule' => "Host(`{$host}`)",
                             ],
                             'coolify-realtime-ws' => [
@@ -537,7 +537,7 @@ class Server extends BaseModel
                         'entryPoints' => [
                             0 => 'https',
                         ],
-                        'service' => 'coolify',
+                        'service' => 'stack',
                         'rule' => "Host(`{$host}`)",
                         'tls' => [
                             'certresolver' => 'letsencrypt',
@@ -615,7 +615,7 @@ $schema://$host {
 
     public function proxyPath()
     {
-        $base_path = config('constants.coolify.base_config_path');
+        $base_path = config('constants.stack.base_config_path');
         $proxyType = $this->proxyType();
         $proxy_path = "$base_path/proxy";
 
@@ -1535,7 +1535,7 @@ $schema://$host {
             ray('CA certificate generated', $caCertificate);
             if ($caCertificate) {
                 $certificateContent = $caCertificate->ssl_certificate;
-                $caCertPath = config('constants.coolify.base_config_path').'/ssl/';
+                $caCertPath = config('constants.stack.base_config_path').'/ssl/';
 
                 $base64Cert = base64_encode($certificateContent);
 

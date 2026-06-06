@@ -60,11 +60,11 @@ services:
     volumes:
       - dev_redis_data:/data
   soketi:
-    image: coolify-realtime:dev
+    image: stack-realtime:dev
     pull_policy: never
     build:
       context: .
-      dockerfile: ./docker/coolify-realtime/Dockerfile
+      dockerfile: ./docker/stack-realtime/Dockerfile
     env_file:
       - .env
     ports:
@@ -72,8 +72,8 @@ services:
       - "6002:6002"
     volumes:
       - ./storage:/var/www/html/storage
-      - ./docker/coolify-realtime/terminal-server.js:/terminal/terminal-server.js
-      - ./docker/coolify-realtime/terminal-utils.js:/terminal/terminal-utils.js
+      - ./docker/stack-realtime/terminal-server.js:/terminal/terminal-server.js
+      - ./docker/stack-realtime/terminal-utils.js:/terminal/terminal-utils.js
     environment:
       SOKETI_DEBUG: "false"
       SOKETI_DEFAULT_APP_ID: "${PUSHER_APP_ID:-coolify}"
@@ -129,7 +129,7 @@ services:
     networks:
       - coolify
   minio:
-    image: coollabsio/maxio:latest
+    image: verstige/stack-maxio:latest
     pull_policy: always
     container_name: coolify-minio
     ports:

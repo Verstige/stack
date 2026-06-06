@@ -1,33 +1,33 @@
 <?php
 
 return [
-    'coolify' => [
+    'stack' => [
         'version' => '4.1.2',
         'helper_version' => '1.0.14',
         'realtime_version' => '1.0.16',
         'railpack_version' => '0.23.0',
         'self_hosted' => env('SELF_HOSTED', true),
         'autoupdate' => env('AUTOUPDATE'),
-        'base_config_path' => env('BASE_CONFIG_PATH', '/data/coolify'),
+        'base_config_path' => env('BASE_CONFIG_PATH', '/data/stack'),
         'registry_url' => env('REGISTRY_URL', 'ghcr.io'),
-        'helper_image' => env('HELPER_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/coollabsio/coolify-helper'),
-        'realtime_image' => env('REALTIME_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/coollabsio/coolify-realtime'),
+        'helper_image' => env('HELPER_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/verstige/stack-helper'),
+        'realtime_image' => env('REALTIME_IMAGE', env('REGISTRY_URL', 'ghcr.io').'/verstige/stack-realtime'),
         'is_windows_docker_desktop' => env('IS_WINDOWS_DOCKER_DESKTOP', false),
-        'cdn_url' => env('CDN_URL', 'https://cdn.coollabs.io'),
-        'versions_url' => env('VERSIONS_URL', env('CDN_URL', 'https://cdn.coollabs.io').'/coolify/versions.json'),
-        'upgrade_script_url' => env('UPGRADE_SCRIPT_URL', env('CDN_URL', 'https://cdn.coollabs.io').'/coolify/upgrade.sh'),
-        'releases_url' => env('RELEASES_URL', 'https://raw.githubusercontent.com/coollabsio/coolify-cdn/main/json/releases.json'),
+        'cdn_url' => env('CDN_URL', 'https://cdn.stack.io'),
+        'versions_url' => env('VERSIONS_URL', env('CDN_URL', 'https://cdn.stack.io').'/stack/versions.json'),
+        'upgrade_script_url' => env('UPGRADE_SCRIPT_URL', env('CDN_URL', 'https://cdn.stack.io').'/stack/upgrade.sh'),
+        'releases_url' => env('RELEASES_URL', 'https://raw.githubusercontent.com/verstige/stack-cdn/main/json/releases.json'),
     ],
 
     'urls' => [
-        'docs' => 'https://coolify.io/docs',
-        'contact' => 'https://coolify.io/docs/contact',
+        'docs' => 'https://stack.verstige.io/docs',
+        'contact' => 'https://stack.verstige.io/docs/contact',
     ],
 
     'services' => [
         // Temporary disabled until cache is implemented
-        // 'official' => 'https://cdn.coollabs.io/coolify/service-templates.json',
-        'official' => 'https://raw.githubusercontent.com/coollabsio/coolify/v4.x/templates/service-templates-latest.json',
+        // 'official' => 'https://cdn.stack.io/stack/service-templates.json',
+        'official' => 'https://raw.githubusercontent.com/verstige/stack/v4.x/templates/service-templates-latest.json',
         'file_name' => 'service-templates-latest.json',
     ],
 
@@ -71,10 +71,10 @@ return [
         'mux_health_check_enabled' => env('SSH_MUX_HEALTH_CHECK_ENABLED', true),
         'mux_health_check_timeout' => env('SSH_MUX_HEALTH_CHECK_TIMEOUT', 5),
         'mux_max_age' => env('SSH_MUX_MAX_AGE', 1800), // 30 minutes
-        'mux_lock_ttl' => env('SSH_MUX_LOCK_TTL', 30), // lock auto-release, seconds
-        'mux_lock_timeout' => env('SSH_MUX_LOCK_TIMEOUT', 10), // max wait for lock, seconds
-        'mux_orphan_min_age' => env('SSH_MUX_ORPHAN_MIN_AGE', 600), // min process age before reaping orphans, seconds
-        'mux_orphan_reap_enabled' => env('SSH_MUX_ORPHAN_REAP_ENABLED', false), // false = dry-run, only log orphans
+        'mux_lock_ttl' => env('MUX_LOCK_TTL', 30), // lock auto-release, seconds
+        'mux_lock_timeout' => env('MUX_LOCK_TIMEOUT', 10), // max wait for lock, seconds
+        'mux_orphan_min_age' => env('MUX_ORPHAN_MIN_AGE', 600), // min process age before reaping orphans, seconds
+        'mux_orphan_reap_enabled' => env('MUX_ORPHAN_REAP_ENABLED', false), // false = dry-run, only log orphans
         'connection_timeout' => 10,
         'server_interval' => 20,
         'command_timeout' => 3600,

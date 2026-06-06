@@ -40,7 +40,7 @@ class NotifyDemo extends Command
 
     private function showHelp()
     {
-        style('coolify')->color('#9333EA');
+        style('stack')->color('#9333EA');
         style('title-box')->apply('mt-1 px-2 py-1 bg-coolify');
 
         render(

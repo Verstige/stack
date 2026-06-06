@@ -27,7 +27,7 @@ class SettingsDropdown extends Component
 
     public function getCurrentVersionProperty()
     {
-        return 'v'.config('constants.coolify.version');
+        return 'v'.config('constants.stack.version');
     }
 
     public function openWhatsNewModal()

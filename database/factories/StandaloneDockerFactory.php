@@ -11,7 +11,7 @@ class StandaloneDockerFactory extends Factory
         return [
             'uuid' => fake()->uuid(),
             'name' => fake()->unique()->word(),
-            'network' => 'coolify',
+            'network' => 'stack',
             'server_id' => 1,
         ];
     }

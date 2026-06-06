@@ -9,7 +9,7 @@ use Livewire\Livewire;
 uses(RefreshDatabase::class);
 
 it('initializes latest version during mount from cached versions data', function () {
-    config(['constants.coolify.version' => '4.0.0-beta.998']);
+    config(['constants.stack.version' => '4.0.0-beta.998']);
     InstanceSettings::create([
         'id' => 0,
         'new_version_available' => true,
@@ -50,7 +50,7 @@ it('falls back to 0.0.0 during mount when cached versions data is unavailable', 
 });
 
 it('clears stale upgrade availability when current version already matches latest version', function () {
-    config(['constants.coolify.version' => '4.0.0-beta.999']);
+    config(['constants.stack.version' => '4.0.0-beta.999']);
     InstanceSettings::create([
         'id' => 0,
         'new_version_available' => true,
@@ -75,7 +75,7 @@ it('clears stale upgrade availability when current version already matches lates
 });
 
 it('clears stale upgrade availability when current version is newer than cached latest version', function () {
-    config(['constants.coolify.version' => '4.0.0-beta.1000']);
+    config(['constants.stack.version' => '4.0.0-beta.1000']);
     InstanceSettings::create([
         'id' => 0,
         'new_version_available' => true,

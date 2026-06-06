@@ -1,6 +1,6 @@
 <div>
     <x-slot:title>
-        Server Variable | Coolify
+        Server Variable | Stack
     </x-slot>
     <div class="flex gap-2 items-center">
         <h1>Shared Variables for {{ data_get($server, 'name') }}</h1>

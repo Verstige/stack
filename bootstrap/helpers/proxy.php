@@ -95,8 +95,8 @@ function collectDockerNetworksByServer(Server $server)
         }
     } else {
         if ($networks->count() === 0) {
-            $networks = collect(['coolify']);
-            $allNetworks = collect(['coolify']);
+            $networks = collect(['stack']);
+            $allNetworks = collect(['stack']);
         }
     }
 
@@ -247,7 +247,7 @@ function generateDefaultProxyConfiguration(Server $server, array $custom_command
             return $docker['network'];
         })->unique();
         if ($networks->count() === 0) {
-            $networks = collect(['coolify']);
+            $networks = collect(['stack']);
         }
     }
 

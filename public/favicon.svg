@@ -1,0 +1,6 @@
+<svg role="img" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <title>Stack</title>
+  <rect width="32" height="32" fill="#000000"/>
+  <polygon points="4,26 4,15 16,4" fill="#FFFFFF"/>
+  <polygon points="28,26 28,15 16,4" fill="#FFFFFF"/>
+</svg>

@@ -73,7 +73,7 @@ class GetInfrastructureOverview extends Tool
         }
 
         return $this->respond([
-            'coolify_version' => config('constants.coolify.version'),
+            'coolify_version' => config('constants.stack.version'),
             'servers' => $servers,
             'projects' => $projectSummaries,
             'counts' => [

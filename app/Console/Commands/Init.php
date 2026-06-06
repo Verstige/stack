@@ -143,8 +143,8 @@ class Init extends Command
             echo "Could not setup dynamic configuration: {$e->getMessage()}\n";
         }
 
-        if (! is_null(config('constants.coolify.autoupdate', null))) {
-            if (config('constants.coolify.autoupdate') == true) {
+        if (! is_null(config('constants.stack.autoupdate', null))) {
+            if (config('constants.stack.autoupdate') == true) {
                 echo "Enabling auto-update\n";
                 $this->settings->update(['is_auto_update_enabled' => true]);
             } else {
@@ -240,7 +240,7 @@ class Init extends Command
 
     private function restoreCoolifyDbBackup()
     {
-        if (version_compare('4.0.0-beta.179', config('constants.coolify.version'), '<=')) {
+        if (version_compare('4.0.0-beta.179', config('constants.stack.version'), '<=')) {
             try {
                 $database = StandalonePostgresql::withTrashed()->find(0);
                 if ($database && $database->trashed()) {
@@ -267,7 +267,7 @@ class Init extends Command
     private function sendAliveSignal()
     {
         $id = config('app.id');
-        $version = config('constants.coolify.version');
+        $version = config('constants.stack.version');
         try {
             Http::get("https://undead.coolify.io/v4/alive?appId=$id&version=$version");
         } catch (\Throwable $e) {
@@ -277,7 +277,7 @@ class Init extends Command
 
     private function replaceSlashInEnvironmentName()
     {
-        if (version_compare('4.0.0-beta.298', config('constants.coolify.version'), '<=')) {
+        if (version_compare('4.0.0-beta.298', config('constants.stack.version'), '<=')) {
             $environments = Environment::all();
             foreach ($environments as $environment) {
                 if (str_contains($environment->name, '/')) {

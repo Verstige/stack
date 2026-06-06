@@ -187,7 +187,7 @@ class Index extends Component
 
             $this->validateOnly('dev_helper_version');
 
-            $version = $this->dev_helper_version ?: config('constants.coolify.helper_version');
+            $version = $this->dev_helper_version ?: config('constants.stack.helper_version');
             if (empty($version)) {
                 $this->dispatch('error', 'Please specify a version to build.');
 

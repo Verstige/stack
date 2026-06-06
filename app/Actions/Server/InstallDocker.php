@@ -25,7 +25,7 @@ class InstallDocker
                 isCaCertificate: true,
                 validityDays: 10 * 365
             );
-            $caCertPath = config('constants.coolify.base_config_path').'/ssl/';
+            $caCertPath = config('constants.stack.base_config_path').'/ssl/';
 
             $base64Cert = base64_encode($serverCert->ssl_certificate);
 

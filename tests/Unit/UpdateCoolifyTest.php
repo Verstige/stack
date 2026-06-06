@@ -43,7 +43,7 @@ it('validates cache against running version before fallback', function () {
     Cache::shouldReceive('remember')
         ->andReturn(['coolify' => ['v4' => ['version' => '4.0.5']]]);
 
-    config(['constants.coolify.version' => '4.0.10']);
+    config(['constants.stack.version' => '4.0.10']);
 
     $action = new UpdateCoolify;
 
@@ -76,7 +76,7 @@ it('uses validated cache when CDN fails and cache is newer', function () {
     Cache::shouldReceive('remember')
         ->andReturn(['coolify' => ['v4' => ['version' => '4.0.10']]]);
 
-    config(['constants.coolify.version' => '4.0.5']);
+    config(['constants.stack.version' => '4.0.5']);
 
     // Mock the update method to prevent actual update
     $action = Mockery::mock(UpdateCoolify::class)->makePartial();
@@ -112,7 +112,7 @@ it('prevents downgrade even with manual update', function () {
     ]);
 
     // Current version is newer
-    config(['constants.coolify.version' => '4.0.10']);
+    config(['constants.stack.version' => '4.0.10']);
 
     $action = new UpdateCoolify;
 

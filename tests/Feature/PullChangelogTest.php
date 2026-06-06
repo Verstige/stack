@@ -33,12 +33,12 @@ afterEach(function () {
 });
 
 test('releases_url config defaults to the GitHub raw source', function () {
-    expect(config('constants.coolify.releases_url'))
+    expect(config('constants.stack.releases_url'))
         ->toBe('https://raw.githubusercontent.com/coollabsio/coolify-cdn/main/json/releases.json');
 });
 
 test('PullChangelog fetches from the configured releases_url and writes the changelog', function () {
-    config(['constants.coolify.releases_url' => 'https://example.test/releases.json']);
+    config(['constants.stack.releases_url' => 'https://example.test/releases.json']);
 
     Http::fake([
         'https://example.test/releases.json' => Http::response(fakeReleasesPayload(), 200),
@@ -57,7 +57,7 @@ test('PullChangelog fetches from the configured releases_url and writes the chan
 });
 
 test('PullChangelog skips draft releases', function () {
-    config(['constants.coolify.releases_url' => 'https://example.test/releases.json']);
+    config(['constants.stack.releases_url' => 'https://example.test/releases.json']);
 
     Http::fake([
         'https://example.test/releases.json' => Http::response(fakeReleasesPayload(), 200),

@@ -37,7 +37,7 @@ class Upgrade extends Component
 
     protected function refreshUpgradeState(): void
     {
-        $this->currentVersion = config('constants.coolify.version');
+        $this->currentVersion = config('constants.stack.version');
         $this->latestVersion = get_latest_version_of_coolify();
         $this->devMode = isDev();
 

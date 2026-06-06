@@ -118,7 +118,7 @@ class Show extends Component
 
     private function writeCertificateToServer()
     {
-        $caCertPath = config('constants.coolify.base_config_path').'/ssl/';
+        $caCertPath = config('constants.stack.base_config_path').'/ssl/';
 
         $base64Cert = base64_encode($this->certificateContent);
 

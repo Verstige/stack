@@ -234,7 +234,7 @@ function defaultLabels($id, $name, string $projectName, string $resourceName, st
 {
     $labels = collect([]);
     $labels->push('coolify.managed=true');
-    $labels->push('coolify.version='.config('constants.coolify.version'));
+    $labels->push('coolify.version='.config('constants.stack.version'));
     $labels->push('coolify.'.$type.'Id='.$id);
     $labels->push("coolify.type=$type");
     $labels->push('coolify.name='.Str::slug($name));

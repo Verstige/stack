@@ -2125,7 +2125,7 @@ class ApplicationDeploymentJob implements ShouldBeEncrypted, ShouldQueue
     private function prepare_builder_image(bool $firstTry = true)
     {
         $this->checkForCancellation();
-        $helperImage = config('constants.coolify.helper_image');
+        $helperImage = config('constants.stack.helper_image');
         $helperImage = "{$helperImage}:".getHelperVersion();
         // Get user home directory
         $this->serverUserHomeDir = instant_remote_process(['echo $HOME'], $this->server);
@@ -2670,7 +2670,7 @@ class ApplicationDeploymentJob implements ShouldBeEncrypted, ShouldQueue
 
         $environmentPrefix = $this->railpack_build_environment_prefix($variables);
         $secretFlags = $this->railpack_build_secret_flags($variables);
-        $frontendImage = 'ghcr.io/railwayapp/railpack-frontend:v'.config('constants.coolify.railpack_version');
+        $frontendImage = 'ghcr.io/railwayapp/railpack-frontend:v'.config('constants.stack.railpack_version');
 
         return 'docker buildx create --name coolify-railpack --driver docker-container 2>/dev/null || true'
             ." && {$environmentPrefix}docker buildx build --builder coolify-railpack"

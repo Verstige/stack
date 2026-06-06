@@ -109,7 +109,7 @@ class EnvironmentVariable extends BaseModel
                 }
             }
             $environment_variable->update([
-                'version' => config('constants.coolify.version'),
+                'version' => config('constants.stack.version'),
             ]);
         });
 

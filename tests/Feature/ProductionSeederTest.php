@@ -15,7 +15,7 @@ uses(RefreshDatabase::class);
 it('creates the root team before seeding the localhost server and predefined shared variables', function () {
     config([
         'broadcasting.default' => 'log',
-        'constants.coolify.is_windows_docker_desktop' => true,
+        'constants.stack.is_windows_docker_desktop' => true,
     ]);
     Queue::fake();
     StartProxy::shouldRun()->andReturn('OK');

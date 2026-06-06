@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Queue;
 uses(RefreshDatabase::class);
 
 it('dispatches scheduled tasks across chunks', function () {
-    config(['constants.coolify.self_hosted' => true]);
+    config(['constants.stack.self_hosted' => true]);
     Carbon::setTestNow(Carbon::create(2026, 5, 27, 0, 1, 0, 'UTC'));
     Queue::fake();
 
@@ -72,7 +72,7 @@ uZx9iFkCELtxrh31QJ68AAAAEXNhaWxANzZmZjY2ZDJlMmRkAQIDBA==
 });
 
 it('skips expensive dispatch for non-due schedules while seeding dedup cache', function () {
-    config(['constants.coolify.self_hosted' => true]);
+    config(['constants.stack.self_hosted' => true]);
     Carbon::setTestNow(Carbon::create(2026, 5, 27, 0, 1, 0, 'UTC'));
     Queue::fake();
 

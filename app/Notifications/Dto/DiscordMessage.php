@@ -46,7 +46,7 @@ class DiscordMessage
 
     public function toPayload(): array
     {
-        $footerText = 'Coolify v'.config('constants.coolify.version');
+        $footerText = 'Coolify v'.config('constants.stack.version');
         if (isCloud()) {
             $footerText = 'Coolify Cloud';
         }

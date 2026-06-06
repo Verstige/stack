@@ -1805,7 +1805,7 @@ function serviceParser(Service $resource): Collection
                 // Only save fqdn to ServiceApplication, not ServiceDatabase
                 if ($isServiceApplication && is_null($savedService->fqdn)) {
                     // Save URL (with scheme) to database, not FQDN
-                    if ((int) $resource->compose_parsing_version >= 5 && version_compare(config('constants.coolify.version'), '4.0.0-beta.420.7', '>=')) {
+                    if ((int) $resource->compose_parsing_version >= 5 && version_compare(config('constants.stack.version'), '4.0.0-beta.420.7', '>=')) {
                         $savedService->fqdn = $urlWithPort;
                     } else {
                         $savedService->fqdn = $urlWithPort;

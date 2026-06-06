@@ -245,5 +245,5 @@ it('builds railpack docker command with matching env and secret flags for all ra
     expect($command)->toContain("--secret 'id=RAILPACK_DEPLOY_APT_PACKAGES,env=RAILPACK_DEPLOY_APT_PACKAGES'");
     expect($command)->toContain("--secret 'id=SECRET_JSON,env=SECRET_JSON'");
     expect($command)->toContain(' --build-arg secrets-hash=');
-    expect($command)->toContain('--build-arg BUILDKIT_SYNTAX="ghcr.io/railwayapp/railpack-frontend:v'.config('constants.coolify.railpack_version').'"');
+    expect($command)->toContain('--build-arg BUILDKIT_SYNTAX="ghcr.io/railwayapp/railpack-frontend:v'.config('constants.stack.railpack_version').'"');
 });

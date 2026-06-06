@@ -28,7 +28,7 @@ test('authenticated non-root user gets 403 on admin page', function () {
 });
 
 test('root user can access admin page in cloud mode', function () {
-    config()->set('constants.coolify.self_hosted', false);
+    config()->set('constants.stack.self_hosted', false);
 
     $rootTeam = Team::find(0) ?? Team::factory()->create(['id' => 0]);
     $rootUser = User::factory()->create(['id' => 0]);
@@ -42,7 +42,7 @@ test('root user can access admin page in cloud mode', function () {
 });
 
 test('root user gets 403 on admin page in self-hosted non-dev mode', function () {
-    config()->set('constants.coolify.self_hosted', true);
+    config()->set('constants.stack.self_hosted', true);
     config()->set('app.env', 'production');
 
     $rootTeam = Team::find(0) ?? Team::factory()->create(['id' => 0]);
@@ -69,7 +69,7 @@ test('submitSearch requires admin authorization', function () {
 });
 
 test('switchUser requires root user id 0', function () {
-    config()->set('constants.coolify.self_hosted', false);
+    config()->set('constants.stack.self_hosted', false);
 
     InstanceSettings::unguarded(fn () => InstanceSettings::query()->create(['id' => 0]));
     $rootUser = User::factory()->create(['id' => 0]);
@@ -89,7 +89,7 @@ test('switchUser requires root user id 0', function () {
 });
 
 test('back() redirects impersonator to admin index and clears session', function () {
-    config()->set('constants.coolify.self_hosted', false);
+    config()->set('constants.stack.self_hosted', false);
 
     InstanceSettings::unguarded(fn () => InstanceSettings::query()->create(['id' => 0]));
     $rootUser = User::factory()->create(['id' => 0]);
@@ -109,7 +109,7 @@ test('back() redirects impersonator to admin index and clears session', function
 });
 
 test('switchUser ignores Referer header and uses dashboard route', function () {
-    config()->set('constants.coolify.self_hosted', false);
+    config()->set('constants.stack.self_hosted', false);
 
     InstanceSettings::unguarded(fn () => InstanceSettings::query()->create(['id' => 0]));
     $rootUser = User::factory()->create(['id' => 0]);
@@ -129,7 +129,7 @@ test('switchUser ignores Referer header and uses dashboard route', function () {
 });
 
 test('switchUser rejects non-root user', function () {
-    config()->set('constants.coolify.self_hosted', false);
+    config()->set('constants.stack.self_hosted', false);
 
     $team = Team::factory()->create();
     $user = User::factory()->create();

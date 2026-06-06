@@ -299,7 +299,7 @@ class PublicGitRepository extends Component
                 $server = $destination->server;
                 $new_service = [
                     'name' => 'service'.str()->random(10),
-                    'docker_compose_raw' => 'coolify',
+                    'docker_compose_raw' => 'stack',
                     'environment_id' => $environment->id,
                     'server_id' => $server->id,
                 ];
