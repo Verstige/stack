@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Add marketing landing page + auth rebranding
 - Add GHCR build workflows for Stack + Stack Realtime
+- Run migrations on container start
 
 ### 🐛 Bug Fixes
 
@@ -21,6 +22,7 @@ All notable changes to this project will be documented in this file.
 
 ### 📚 Documentation
 
+- Update changelog
 - Update changelog
 - Update changelog
 - Update changelog
