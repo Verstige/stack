@@ -28,6 +28,11 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
+- Update changelog
+
+### ⚙️ Miscellaneous Tasks
+
+- Add Railway.toml with docker builder
 
 ## [4.1.2] - 2026-06-04
 
