@@ -28,9 +28,10 @@ jobs:
           - arch: amd64
             platform: linux/amd64
             runner: ubuntu-24.04
-          - arch: aarch64
+          - arch: arm64
             platform: linux/arm64
             runner: ubuntu-24.04-arm
+            tag_arch: aarch64
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v5
@@ -58,7 +59,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           push: true
           tags: |
-            ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}-${{ matrix.arch }}
+            ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}-${{ matrix.tag_arch }}
             ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}
             ghcr.io/${{ env.IMAGE_NAME }}:latest
 
@@ -89,6 +90,6 @@ jobs:
         run: |
           docker buildx imagetools create \
           ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}-amd64 \
-          ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}-arm64 \
+          ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}-aarch64 \
           --tag ghcr.io/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }} \
           --tag ghcr.io/${{ env.IMAGE_NAME }}:latest
