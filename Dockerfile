@@ -69,13 +69,10 @@ RUN set -eux; \
 RUN docker-php-serversideup-set-id www-data $USER_ID:$GROUP_ID && \
     docker-php-serversideup-set-file-permissions --owner $USER_ID:$GROUP_ID --service nginx
 
-RUN apk add --no-cache gnupg && \
-    mkdir -p /usr/share/keyrings && \
-    curl -fSsL https://www.postgresql.org/media/keys/ACCC4CF8.asc -o /usr/share/keyrings/postgresql.gpg && \
-    gpg --dearmor < /usr/share/keyrings/postgresql.gpg > /usr/share/keyrings/postgresql.gpg
+RUN apk upgrade
 
-RUN apk upgrade && apk add --no-cache \
-    postgresql${POSTGRES_VERSION}-client \
+RUN apk add --no-cache \
+    postgresql-client \
     openssh-client \
     git \
     git-lfs \
