@@ -33,6 +33,7 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
+- Update changelog
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -41,6 +42,7 @@ All notable changes to this project will be documented in this file.
 - Always pull image
 - Use image only, no local dockerfile build
 - Remove docker builder, use image directly
+- Remove Dockerfile to force Railway to use GHCR image
 
 ## [4.1.2] - 2026-06-04
 
