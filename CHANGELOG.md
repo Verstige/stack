@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - Correct aarch64 tag naming in build workflows
 - Railway-compatible Dockerfile (no buildx cache mounts)
+- Remove GPG key import that fails on Railway builder
 
 ### 💼 Other
 
@@ -20,6 +21,7 @@ All notable changes to this project will be documented in this file.
 
 ### 📚 Documentation
 
+- Update changelog
 - Update changelog
 - Update changelog
 
