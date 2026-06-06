@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 ### 🐛 Bug Fixes
 
 - Correct aarch64 tag naming in build workflows
+- Railway-compatible Dockerfile (no buildx cache mounts)
 
 ### 💼 Other
 
@@ -19,6 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ### 📚 Documentation
 
+- Update changelog
 - Update changelog
 
 ## [4.1.2] - 2026-06-04
