@@ -31,7 +31,8 @@ RUN docker-php-serversideup-set-id www-data $USER_ID:$GROUP_ID && \
 
 WORKDIR /var/www/html
 COPY --chown=www-data:www-data composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --no-plugins --no-scripts --prefer-dist
+RUN composer install --no-dev --no-interaction --no-plugins --no-scripts --prefer-dist && \
+    composer require predis/predis --no-dev --no-interaction --no-plugins --no-scripts --prefer-dist
 USER www-data
 
 FROM node:24-alpine AS static-assets
