@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
+- Update changelog
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -39,6 +40,7 @@ All notable changes to this project will be documented in this file.
 - Pin image in Railway.toml
 - Always pull image
 - Use image only, no local dockerfile build
+- Remove docker builder, use image directly
 
 ## [4.1.2] - 2026-06-04
 
