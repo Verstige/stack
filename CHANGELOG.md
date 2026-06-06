@@ -30,11 +30,13 @@ All notable changes to this project will be documented in this file.
 - Update changelog
 - Update changelog
 - Update changelog
+- Update changelog
 
 ### ⚙️ Miscellaneous Tasks
 
 - Add Railway.toml with docker builder
 - Pin image in Railway.toml
+- Always pull image
 
 ## [4.1.2] - 2026-06-04
 
